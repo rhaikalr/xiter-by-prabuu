@@ -1,0 +1,72 @@
+/* Cyber Samurai - modern red & dark */
+:root{
+  --bg-1: #070307;
+  --bg-2: #0f0510;
+  --accent-red: #ff2d4b;
+  --accent-red-2: #ff6b86;
+  --glass: rgba(255,255,255,0.03);
+  --muted: #b0a9b2;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;font-family: 'Rajdhani', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:#fff;}
+
+/* canvas covers full background */
+#bgCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+
+/* main wrapper sits above canvas */
+.wrap{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 20px;gap:28px;text-align:center}
+
+/* hero */
+.hero{backdrop-filter: blur(6px);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.02);width:min(980px,96%);display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.logo{width:140px;height:140px;object-fit:cover;border-radius:50%;border:3px solid rgba(255,45,75,0.06);box-shadow:0 10px 40px rgba(255,45,75,0.06)}
+.brand{font-family:'Orbitron',sans-serif;font-weight:800;font-size:34px;letter-spacing:1px;color:var(--accent-red-2);text-shadow:0 6px 30px rgba(255,45,75,0.08)}
+.tagline{color:var(--muted);margin-top:-4px;font-size:15px}
+
+/* links center */
+.links-section{width:100%;display:flex;justify-content:center}
+.links{display:flex;flex-direction:column;gap:14px;width:100%;max-width:720px;align-items:center}
+
+/* button style */
+.btn{
+  display:flex;align-items:center;gap:12px;justify-content:center;
+  width:92%;max-width:520px;padding:14px 22px;border-radius:12px;text-decoration:none;color:#fff;font-weight:600;
+  transition:transform .18s ease, box-shadow .18s ease;
+  border:1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(90deg, rgba(255,45,75,0.06), rgba(0,0,0,0.06));
+  box-shadow: 0 6px 26px rgba(0,0,0,0.6);
+  position:relative;
+}
+
+/* red neon accent */
+.btn-red{outline:3px solid transparent}
+.btn-red::before{
+  content:"";position:absolute;inset:0;border-radius:12px;
+  background:linear-gradient(90deg, rgba(255,45,75,0.06), rgba(255,107,134,0.04));
+  z-index:0;mix-blend-mode:screen;pointer-events:none;
+}
+.btn .ico{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:10px;background:linear-gradient(180deg,rgba(255,45,75,0.14),rgba(255,45,75,0.06));box-shadow:0 6px 18px rgba(255,45,75,0.05);font-weight:700;color:var(--accent-red)}
+.btn .txt{z-index:1;display:inline-block}
+
+/* hover effects */
+.btn:hover{transform:translateY(-8px);box-shadow:0 26px 60px rgba(255,45,75,0.08)}
+.btn:active{transform:translateY(-2px)}
+
+/* about card */
+.about{width:min(900px,96%);padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.02);backdrop-filter: blur(4px)}
+.sec-title{font-family:'Orbitron',sans-serif;color:var(--accent-red);letter-spacing:1px;margin:0 0 8px 0}
+.caption{color:var(--muted);line-height:1.6;margin:0}
+
+/* footer */
+.foot{margin-top:8px;color:var(--muted);font-size:13px}
+
+/* responsive tweaks */
+@media (min-width:720px){
+  .links{flex-direction:column}
+  .btn{width:80%}
+}
+@media (max-width:520px){
+  .brand{font-size:26px}
+  .logo{width:110px;height:110px}
+  .btn{padding:12px 18px}
+}
